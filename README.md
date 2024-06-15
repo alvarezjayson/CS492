@@ -13,7 +13,7 @@
 * [Other Information](#other-information)
 
 ## Project Description
-SkyHigh Airlines is looking to expand its markets to online shoppers all over the world. We hopes to achieve this goal of providing a seemless user expierience with implementing an online reservation system. The main features of the system include the following: 
+SkyHigh Airlines is looking to expand its markets to online shoppers all over the world. We hope to achieve this goal of providing a seamless user experience with implementing an online reservation system. The main features of the system include the following: 
   * Customers can search for flights, purchase flights, and check flight status. 
   * The system will keep track of reservations and ticket sales for flights to various destinations. 
   * Support payments by credit card only. The system will support flight cancellations with notifications to all customers. 
