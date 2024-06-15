@@ -1,6 +1,6 @@
 # CS492 - Computer Science Team Project II
 
-(AIRLINE NAME) Airline Reservation System
+SkyHigh Airlines Reservation System
 
 ## Table of contents
 * [Project Description](#project-description)
@@ -12,7 +12,7 @@
 * [Other Information](#other-information)
 
 ## Project Description
-(AIRLINE NAME) Airline is looking to expand its markets to online shoppers all over the world. We hopes to achieve this goal of providing a seemless user expierience with implementing an online reservation system. The main features of the system include the following: 
+SkyHigh Airlines is looking to expand its markets to online shoppers all over the world. We hopes to achieve this goal of providing a seemless user expierience with implementing an online reservation system. The main features of the system include the following: 
   * Customers can search for flights, purchase flights, and check flight status. 
   * The system will keep track of reservations and ticket sales for flights to various destinations. 
   * Support payments by credit card only. The system will support flight cancellations with notifications to all customers. 
