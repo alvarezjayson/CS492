@@ -18,11 +18,12 @@ SkyHigh Airlines is looking to expand its markets to online shoppers all over th
   * The system will keep track of reservations and ticket sales for flights to various destinations. 
   * Support payments by credit card only. The system will support flight cancellations with notifications to all customers. 
   * The system will be able to keep track of agents and the sales for each agent. 
+
   
 ## Technologies
-Discord (Team Communication)
-OneDrive (Documentation Collaboration)
-GitHub (Repository Hosting)
+* Discord (Team Communication)
+* OneDrive (Documentation Collaboration)
+* GitHub (Repository Hosting)
 
 ## Usage instructions
 
