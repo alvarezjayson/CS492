@@ -1,47 +1,67 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
 }
 
-header, footer {
+header {
     background-color: #333;
-    color: #fff;
-    text-align: center;
+    color: white;
     padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
 }
 
 main {
     padding: 20px;
 }
 
-section {
-    margin-bottom: 20px;
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-form {
+form label {
+    display: block;
     margin-bottom: 10px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
+form button,
+#confirmBooking {
+    background-color: #007bff;
+    color: white;
     border: none;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+#flightResults {
+    display: none;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+#flightResults.visible {
+    display: block;
