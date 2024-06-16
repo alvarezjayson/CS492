@@ -1,7 +1,7 @@
 # CS492 - Computer Science Team Project II
 
 **SkyHigh Airlines Reservation System**
-<ul>"Wonder the Skies with us!" </ul>
+<ul>"Wander the Skies with us!" </ul>
 
 ## Table of contents
 * [Project Description](#project-description)
