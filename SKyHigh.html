@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkyHigh Airlines</title>
-<style>
-/* Add your CSS styling here */
-body { font-family: Arial, sans-serif; }
-/* ... */
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyHigh Airlines</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-<!-- Navigation bar -->
-<nav>
-<!-- Logo and links -->
-</nav>
-</header>
-<main>
-<!-- Homepage content -->
-<section id="booking">
-<!-- Flight booking form -->
-</section>
-<section id="check-in">
-<!-- Online check-in system -->
-</section>
-<section id="flight-status">
-<!-- Flight status tracker -->
-</section>
-<section id="loyalty-program">
-<!-- Loyalty program details -->
-</section>
-</main>
-<footer>
-<!-- Customer support and other links -->
-</footer>
-<script>
-// Add your JavaScript here
-</script>
+    <header>
+        <h1>SkyHigh Airlines</h1>
+    </header>
+    <main>
+        <section id="searchSection">
+            <h2>Search for Flights</h2>
+            <form id="searchForm">
+                <label for="departure">Departure:</label>
+                <input type="text" id="departure" name="departure" required>
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit" onclick="searchFlights()">Search Flights</button>
+            </form>
+            <div id="searchResults"></div>
+        </section>
+        <section id="bookingSection" style="display: none;">
+            <h2>Book Flight</h2>
+            <div id="flightDetails"></div>
+            <form id="bookingForm">
+                <label for="passengerName">Passenger Name:</label>
+                <input type="text" id="passengerName" name="passengerName" required>
+                <label for="creditCard">Credit Card Number:</label>
+                <input type="text" id="creditCard" name="creditCard" required>
+                <button type="button" onclick="purchaseFlight()">Purchase Flight</button>
+            </form>
+        </section>
+        <section id="statusSection" style="display: none;">
+            <h2>Check Flight Status</h2>
+            <form id="statusForm">
+                <label for="bookingReference">Booking Reference:</label>
+                <input type="text" id="bookingReference" name="bookingReference" required>
+                <button type="button" onclick="checkFlightStatus()">Check Status</button>
+            </form>
+            <div id="flightStatus"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SkyHigh Airlines</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
