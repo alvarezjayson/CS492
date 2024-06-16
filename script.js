@@ -1,90 +1,88 @@
-// Mock data for demonstration purposes
-let flights = [
-    { id: 1, departure: 'New York', destination: 'Los Angeles', date: '2024-07-01', seatsAvailable: 100 },
-    { id: 2, departure: 'Chicago', destination: 'San Francisco', date: '2024-07-02', seatsAvailable: 80 },
-    { id: 3, departure: 'Miami', destination: 'Seattle', date: '2024-07-03', seatsAvailable: 120 }
-];
-
-let bookings = [];
-
-function searchFlights() {
+// scripts.js
+document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    let departure = document.getElementById('departure').value;
-    let destination = document.getElementById('destination').value;
-    let date = document.getElementById('date').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-    let results = flights.filter(flight => flight.departure.toLowerCase() === departure.toLowerCase()
-                            && flight.destination.toLowerCase() === destination.toLowerCase()
-                            && flight.date === date);
+    // Perform login logic (e.g., send data to backend API)
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Login successful', data);
+        // Redirect or perform actions after successful login
+        window.location.href = '/dashboard.html';
+    })
+    .catch(error => {
+        console.error('Error logging in', error);
+    });
+});
 
-    displaySearchResults(results);
-}
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-function displaySearchResults(results) {
-    let searchResultsDiv = document.getElementById('searchResults');
-    searchResultsDiv.innerHTML = '';
+    // Perform registration logic (e.g., send data to backend API)
+    fetch('/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Registration successful', data);
+        // Redirect or perform actions after successful registration
+        window.location.href = '/login.html';
+    })
+    .catch(error => {
+        console.error('Error registering', error);
+    });
+});
 
-    if (results.length === 0) {
-        searchResultsDiv.innerHTML = '<p>No flights found.</p>';
-    } else {
-        results.forEach(flight => {
-            let flightDiv = document.createElement('div');
-            flightDiv.innerHTML = `
-                <p>Flight from ${flight.departure} to ${flight.destination} on ${flight.date}</p>
-                <p>Seats Available: ${flight.seatsAvailable}</p>
-                <button onclick="showBookingForm(${flight.id})">Book Now</button>
-            `;
-            searchResultsDiv.appendChild(flightDiv);
+document.getElementById('flightSearchForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const departure = document.getElementById('departure').value;
+    const destination = document.getElementById('destination').value;
+    const date = document.getElementById('date').value;
+
+    // Perform flight search logic (e.g., send data to backend API)
+    fetch('/searchFlights', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ departure, destination, date }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Flight search results', data);
+        // Display flight results
+        const flightsList = document.getElementById('flightsList');
+        flightsList.innerHTML = '';
+        data.flights.forEach(flight => {
+            const li = document.createElement('li');
+            li.textContent = `${flight.departure} to ${flight.destination} on ${flight.date}`;
+            flightsList.appendChild(li);
         });
-    }
-    document.getElementById('bookingSection').style.display = 'none';
-    document.getElementById('statusSection').style.display = 'none';
-    document.getElementById('searchSection').style.display = 'block';
-}
+        document.getElementById('flightResults').classList.add('visible');
+    })
+    .catch(error => {
+        console.error('Error searching flights', error);
+    });
+});
 
-function showBookingForm(flightId) {
-    let selectedFlight = flights.find(flight => flight.id === flightId);
-    let flightDetailsDiv = document.getElementById('flightDetails');
-    flightDetailsDiv.innerHTML = `
-        <p>Flight from ${selectedFlight.departure} to ${selectedFlight.destination} on ${selectedFlight.date}</p>
-        <p>Seats Available: ${selectedFlight.seatsAvailable}</p>
-    `;
-    document.getElementById('bookingSection').style.display = 'block';
-    document.getElementById('statusSection').style.display = 'none';
-    document.getElementById('searchSection').style.display = 'none';
-}
-
-function purchaseFlight() {
-    let passengerName = document.getElementById('passengerName').value;
-    let creditCard = document.getElementById('creditCard').value;
-
-    // Mock purchase logic (assuming successful purchase)
-    alert(`Flight purchased successfully by ${passengerName}!`);
-    document.getElementById('bookingForm').reset();
-    document.getElementById('bookingSection').style.display = 'none';
-    document.getElementById('statusSection').style.display = 'none';
-    document.getElementById('searchSection').style.display = 'block';
-
-    // Update seats available (in a real app, this would be done server-side)
-    let flightId = parseInt(document.getElementById('flightDetails').querySelector('button').getAttribute('onclick').match(/\d+/)[0]);
-    let index = flights.findIndex(flight => flight.id === flightId);
-    if (index !== -1) {
-        flights[index].seatsAvailable--;
-    }
-}
-
-function checkFlightStatus() {
-    let bookingReference = document.getElementById('bookingReference').value;
-
-    let booking = bookings.find(booking => booking.reference === bookingReference);
-
-    if (booking) {
-        document.getElementById('flightStatus').innerText = `Flight Status: ${booking.status}`;
-    } else {
-        document.getElementById('flightStatus').innerText = 'Booking reference not found.';
-    }
-
-    document.getElementById('statusSection').style.display = 'block';
-    document.getElementById('bookingSection').style.display = 'none';
-    document.getElementById('searchSection').style.display = 'none';
-}
+document.getElementById('confirmBooking').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Perform booking confirmation logic
+    // Example: Redirect to booking confirmation page
+    window.location.href = '/booking.html';
+});
